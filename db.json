@@ -1,0 +1,281 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "username": "john_doe",
+      "password_hash": "john@123",
+      "email": "john@example.com",
+      "is_admin": false,
+      "id": "e453"
+    },
+    {
+      "user_id": 2,
+      "username": "jane_smith",
+      "password_hash": "jane@123",
+      "email": "jane@example.com",
+      "is_admin": true,
+      "id": "a74d"
+    },
+    {
+      "user_id": 3,
+      "username": "bob_jones",
+      "password_hash": "bob@123",
+      "email": "bob@example.com",
+      "is_admin": false,
+      "id": "1bad"
+    },
+    {
+      "user_id": 4,
+      "username": "alice_green",
+      "password_hash": "alice@123",
+      "email": "alice@example.com",
+      "is_admin": false,
+      "id": "eb4c"
+    },
+    {
+      "id": "746a",
+      "user_id": 5,
+      "username": "demouser",
+      "password_hash": "demo@123",
+      "email": "demo@gmail.com",
+      "is_admin": false
+    }
+  ],
+  "Current": [
+    {
+      "id": "27a1",
+      "name": "newEvent4",
+      "date": "2024-04-25T18:30:00.000Z",
+      "suggestions": []
+    }
+  ],
+  "Freezed": [
+    {
+      "id": "75cb",
+      "name": "newEvent3",
+      "date": "2024-04-29T18:30:00.000Z",
+      "suggestions": [
+        {
+          "place": "TT at office",
+          "category": "BoardGames",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "TT at office",
+        "category": "BoardGames",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    }
+  ],
+  "Finished": [
+    {
+      "id": "45c0",
+      "name": "demo",
+      "date": "2024-04-19T01:38:06.000Z",
+      "suggestions": [
+        {
+          "place": "cricket nvk sports",
+          "category": "Sports",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "cricket nvk sports",
+        "category": "Sports",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    },
+    {
+      "id": "cc8c",
+      "name": "demo4",
+      "date": "2024-04-19T02:38:07.000Z",
+      "suggestions": [
+        {
+          "place": "cricket nvk sports",
+          "category": "Food",
+          "upvotes": [
+            "a74d",
+            "e453"
+          ],
+          "downvotes": []
+        },
+        {
+          "place": "cricket nvk sports",
+          "category": "Sports",
+          "upvotes": [
+            "e453"
+          ],
+          "downvotes": []
+        },
+        {
+          "place": "bang in office",
+          "category": "BoardGames",
+          "upvotes": [],
+          "downvotes": [
+            "e453"
+          ]
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "cricket nvk sports",
+        "category": "Food",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    },
+    {
+      "id": "9a43",
+      "name": "demoevent",
+      "date": "2024-04-20T08:35:04.000Z",
+      "suggestions": [
+        {
+          "place": "cricket nvk sports",
+          "category": "Sports",
+          "upvotes": [
+            "a74d",
+            "e453"
+          ],
+          "downvotes": []
+        },
+        {
+          "place": "lunch at alavikuntapuramlo",
+          "category": "Food",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": [
+            "e453"
+          ]
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "lunch at alavikuntapuramlo",
+        "category": "Food",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    },
+    {
+      "id": "8139",
+      "name": "demo17",
+      "date": "2024-04-20T18:30:00.000Z",
+      "suggestions": [
+        {
+          "place": "cricket nvk sports",
+          "category": "Sports",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "cricket nvk sports",
+        "category": "Sports",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    },
+    {
+      "id": "f85f",
+      "name": "newEvent",
+      "date": "2024-04-20T18:30:00.000Z",
+      "suggestions": [
+        {
+          "place": "bang in office",
+          "category": "BoardGames",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        },
+        {
+          "place": "cricket nvk sports",
+          "category": "Sports",
+          "upvotes": [],
+          "downvotes": []
+        },
+        {
+          "place": "lunch at alavikuntapuramlo",
+          "category": "Food",
+          "upvotes": [],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "bang in office",
+        "category": "BoardGames",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": [
+          "e453"
+        ]
+      }
+    },
+    {
+      "id": "f9a1",
+      "name": "newEvent2",
+      "date": "2024-04-26T18:30:00.000Z",
+      "suggestions": [
+        {
+          "place": "lunch at alavikuntapuramlo",
+          "category": "Food",
+          "upvotes": [],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "lunch at alavikuntapuramlo",
+        "category": "Food",
+        "upvotes": [],
+        "downvotes": [
+          "a74d",
+          "e453"
+        ]
+      }
+    },
+    {
+      "id": "ce50",
+      "name": "newEvent3",
+      "date": "2024-04-25T18:30:00.000Z",
+      "suggestions": [
+        {
+          "place": "exploding kittens at office",
+          "category": "BoardGames",
+          "upvotes": [],
+          "downvotes": [
+            "a74d"
+          ]
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "exploding kittens at office",
+        "category": "BoardGames",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    }
+  ]
+}
