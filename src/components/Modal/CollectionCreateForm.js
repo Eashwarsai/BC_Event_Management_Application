@@ -5,7 +5,7 @@ const CollectionCreateForm = ({ onFormInstanceReady, data, name }) => {
   const [form] = Form.useForm();
   useEffect(() => {
     onFormInstanceReady(form);
-  }, []);
+  }, [form,onFormInstanceReady]);
   if (data) {
     console.log(data);
     data.sort((item1, item2) => {

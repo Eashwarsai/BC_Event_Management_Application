@@ -35,7 +35,7 @@ const InputSuggestion = ({ event }) => {
           },
         ]}
       >
-        <Input />
+        <Input placeholder="eg: cricket @game point gachibowli "/>
       </Form.Item>
       <Form.Item
         name="category"

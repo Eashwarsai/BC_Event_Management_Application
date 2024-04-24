@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { useFreezedEvents } from "../constants/query/FetchQuery";
-import EventDetails from "./EventDetails/EventDetails";
-import AdminOperation from "./AdminOperation";
+import { useFreezedEvents } from "../../constants/query/FetchQuery";
+import EventDetails from "../EventDetails/EventDetails";
+import AdminOperation from "../Admin/AdminOperation";
 import {
   useAddFinishedEvent,
   useDeleteFreezedEvent,
   useUpdateFreezedEvent,
-} from "../constants/query/PostQuery";
-import Suggestion from "./Suggestion";
-import UserContext from "../context/UserContext";
+} from "../../constants/query/PostQuery";
+import Suggestion from "../Suggestion";
+import UserContext from "../../context/UserContext";
 
 const Freezed = () => {
   const { currentUser } = useContext(UserContext);

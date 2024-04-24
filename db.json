@@ -43,9 +43,9 @@
   ],
   "Current": [
     {
-      "id": "27a1",
-      "name": "newEvent4",
-      "date": "2024-04-25T18:30:00.000Z",
+      "id": "47af",
+      "name": "temperory",
+      "date": "2024-04-25T08:38:08.000Z",
       "suggestions": []
     }
   ],
@@ -71,6 +71,53 @@
           "a74d"
         ],
         "downvotes": []
+      }
+    },
+    {
+      "id": "27a1",
+      "name": "newEvent4",
+      "date": "2024-04-25T18:30:00.000Z",
+      "suggestions": [
+        {
+          "place": "exploding kittens @office",
+          "category": "BoardGames",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "exploding kittens @office",
+        "category": "BoardGames",
+        "upvotes": [
+          "a74d",
+          "e453"
+        ],
+        "downvotes": []
+      }
+    },
+    {
+      "id": "796f",
+      "name": "demo#3",
+      "date": "2024-04-24T13:00:00.000Z",
+      "suggestions": [
+        {
+          "place": "bang @office",
+          "category": "BoardGames",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "bang @office",
+        "category": "BoardGames",
+        "upvotes": [],
+        "downvotes": [
+          "a74d"
+        ]
       }
     }
   ],
@@ -196,12 +243,12 @@
       }
     },
     {
-      "id": "f85f",
-      "name": "newEvent",
-      "date": "2024-04-20T18:30:00.000Z",
+      "id": "ec1d",
+      "name": "Random event",
+      "date": "2024-04-24T10:00:00.000Z",
       "suggestions": [
         {
-          "place": "bang in office",
+          "place": "bang @office",
           "category": "BoardGames",
           "upvotes": [
             "a74d"
@@ -209,58 +256,7 @@
           "downvotes": []
         },
         {
-          "place": "cricket nvk sports",
-          "category": "Sports",
-          "upvotes": [],
-          "downvotes": []
-        },
-        {
-          "place": "lunch at alavikuntapuramlo",
-          "category": "Food",
-          "upvotes": [],
-          "downvotes": []
-        }
-      ],
-      "finalizedSuggestion": {
-        "place": "bang in office",
-        "category": "BoardGames",
-        "upvotes": [
-          "a74d"
-        ],
-        "downvotes": [
-          "e453"
-        ]
-      }
-    },
-    {
-      "id": "f9a1",
-      "name": "newEvent2",
-      "date": "2024-04-26T18:30:00.000Z",
-      "suggestions": [
-        {
-          "place": "lunch at alavikuntapuramlo",
-          "category": "Food",
-          "upvotes": [],
-          "downvotes": []
-        }
-      ],
-      "finalizedSuggestion": {
-        "place": "lunch at alavikuntapuramlo",
-        "category": "Food",
-        "upvotes": [],
-        "downvotes": [
-          "a74d",
-          "e453"
-        ]
-      }
-    },
-    {
-      "id": "ce50",
-      "name": "newEvent3",
-      "date": "2024-04-25T18:30:00.000Z",
-      "suggestions": [
-        {
-          "place": "exploding kittens at office",
+          "place": "exploding kittens @office",
           "category": "BoardGames",
           "upvotes": [],
           "downvotes": [
@@ -269,12 +265,66 @@
         }
       ],
       "finalizedSuggestion": {
-        "place": "exploding kittens at office",
+        "place": "bang @office",
         "category": "BoardGames",
         "upvotes": [
           "a74d"
         ],
         "downvotes": []
+      }
+    },
+    {
+      "id": "9a0b",
+      "name": "demo event #1",
+      "date": "2024-04-24T11:34:04.000Z",
+      "suggestions": [
+        {
+          "place": "bang @office",
+          "category": "BoardGames",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        },
+        {
+          "place": "cricket @game point gachibouli",
+          "category": "Sports",
+          "upvotes": [],
+          "downvotes": [
+            "a74d"
+          ]
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "bang @office",
+        "category": "BoardGames",
+        "upvotes": [
+          "a74d"
+        ],
+        "downvotes": []
+      }
+    },
+    {
+      "id": "2daa",
+      "name": "demo #2",
+      "date": "2024-04-24T13:37:08.000Z",
+      "suggestions": [
+        {
+          "place": "bang @office",
+          "category": "BoardGames",
+          "upvotes": [
+            "a74d"
+          ],
+          "downvotes": []
+        }
+      ],
+      "finalizedSuggestion": {
+        "place": "bang @office",
+        "category": "BoardGames",
+        "upvotes": [],
+        "downvotes": [
+          "a74d"
+        ]
       }
     }
   ]

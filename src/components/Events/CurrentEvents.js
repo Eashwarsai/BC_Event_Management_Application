@@ -1,7 +1,7 @@
 import React from "react";
-import CollectionCreateFormModal from "./modal/CollectionCreateFormModal";
-import { CurrentEvents } from "../constants/query/FetchQuery";
-import SuggestionCard from "./SuggestionCard";
+import CollectionCreateFormModal from "../Modal/CollectionCreateFormModal";
+import { CurrentEvents } from "../../constants/query/FetchQuery";
+import SuggestionCard from "../SuggestionCard";
 
 const Current = () => {
   const { isLoading, data } = CurrentEvents();

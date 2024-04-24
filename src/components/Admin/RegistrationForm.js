@@ -9,7 +9,7 @@ const RegistrationForm = () => {
   const onFinish = async (values) => {
     console.log("Received values of form: ", values);
     try {
-      const data = await axios.get('http://localhost:5000/users');
+      const data = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
       console.log(data)
       const id=data.data.length+1;
       const user = {
@@ -19,7 +19,7 @@ const RegistrationForm = () => {
         email: values.email,
         is_admin: false
       };
-      await axios.post("http://localhost:5000/users",user);
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`,user);
       form.resetFields();
       setError('')
       setSuccessMessage('User Added Successfully');

@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   const onFinish = async ({ username, password }) => {
     try {
-      const users = await axios.get("http://localhost:5000/users");
+      const users = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
       const user = users?.data.find((item) => item.username === username);
       if (user && user.password_hash === password) {
         setCurrentUser(user);

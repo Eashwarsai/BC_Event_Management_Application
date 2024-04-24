@@ -2,13 +2,13 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 const FetchCurrentEvents = () =>{
-  return axios.get('http://localhost:5000/Current');
+  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/Current`);
 }
 const FetchFreezedEvents = () =>{
-  return axios.get('http://localhost:5000/Freezed');
+  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/Freezed`);
 }
 const FetchFinishedEvents = async() =>{
-  return await axios.get('http://localhost:5000/Finished');
+  return await axios.get(`${process.env.REACT_APP_BACKEND_URL}/Finished`);
 }
 export const CurrentEvents = () => {
   return useQuery('currentEvents',FetchCurrentEvents);

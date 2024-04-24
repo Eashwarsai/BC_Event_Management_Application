@@ -6,11 +6,12 @@ import {
   useAddSuggestion,
   useDeleteCurrentEvent,
 } from "../constants/query/PostQuery";
-import AdminOperation from "./AdminOperation";
+import AdminOperation from "./Admin/AdminOperation";
 import EventDetails from "./EventDetails/EventDetails";
 import Suggestion from "./Suggestion";
 import { Button, Modal } from "antd";
-import CollectionCreateForm from "./modal/CollectionCreateForm";
+import CollectionCreateForm from "./Modal/CollectionCreateForm";
+import { PostEventToSlack } from "../constants/Slack";
 const SuggestionCard = ({ event }) => {
   const { currentUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
@@ -34,8 +35,14 @@ const SuggestionCard = ({ event }) => {
       };
       moveCurrentEvent(updatedEvent);
       deleteCurrentEvent(event);
+      const message = `We have finalized "${values.suggestion.place}", for the event "${event.name}" based on voting count and availability`;
+      const notifyInSlack = await PostEventToSlack(
+        process.env.REACT_APP_SLACK_API,
+        { message: message }
+      );
+      console.log(notifyInSlack);
     } catch (e) {
-      console.log(e);
+      console.log('Error',e);
     }
   };
   const handleUpVote = (suggestion, sid, inUpVotes, inDownVotes) => {
@@ -111,7 +118,9 @@ const SuggestionCard = ({ event }) => {
             />
           );
         })}
-      <Button type="primary" onClick={()=>setInputModal(!inputModal)}>Add suggestion</Button> 
+        <Button type="primary" onClick={() => setInputModal(!inputModal)}>
+          Add suggestion
+        </Button>
       </div>
       <Modal
         open={inputModal}
@@ -120,7 +129,7 @@ const SuggestionCard = ({ event }) => {
         centered
         onCancel={() => setInputModal(false)}
         footer={[
-          <Button key="back" onClick={()=>setInputModal(false)}>
+          <Button key="back" onClick={() => setInputModal(false)}>
             Close
           </Button>,
         ]}

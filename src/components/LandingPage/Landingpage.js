@@ -1,17 +1,21 @@
 import React, { useContext } from "react";
 import { Layout, Menu, theme } from "antd";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { NavIcons, SliderFeilds } from "../../constants/Constants";
 import { LogoutOutlined } from "@ant-design/icons";
 import UserContext from "../../context/UserContext";
 import "./LandingPage.css";
+import AllRoutes from "../AllRoutes";
 const { Header, Content, Footer, Sider } = Layout;
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const currentLocation=location.pathname.split('/').slice(-1)[0]
-  console.log(currentLocation)
+  const currentLocation = location.pathname.split("/").slice(-1)[0];
+  console.log(currentLocation);
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -76,7 +80,7 @@ const LandingPage = () => {
           style={{
             minHeight: "78vh",
             background: colorBgContainer,
-            borderRadius: '0.5rem',
+            borderRadius: "0.5rem",
           }}
         >
           <Sider
@@ -88,7 +92,11 @@ const LandingPage = () => {
             <Menu
               theme="dark"
               mode="inline"
-              selectedKeys={location.pathname.indexOf("/Home") !== -1?['Home']:[currentLocation]}
+              selectedKeys={
+                location.pathname.indexOf("/Home") !== -1
+                  ? ["Home"]
+                  : [currentLocation]
+              }
               style={{
                 minHeight: "100%",
                 padding: "24px 0",
@@ -103,7 +111,7 @@ const LandingPage = () => {
               minHeight: "100%",
             }}
           >
-            <Outlet />
+            <AllRoutes/>
           </Content>
         </Layout>
       </Content>

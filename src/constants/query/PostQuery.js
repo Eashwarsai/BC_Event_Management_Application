@@ -2,26 +2,25 @@ import axios from "axios";
 import { useMutation, useQueryClient } from "react-query";
 
 const addEvent = async (data) => {
-  return await axios.post("http://localhost:5000/Current", data);
+  return await axios.post(`${process.env.REACT_APP_BACKEND_URL}/Current`, data);
 };
 const updateFreezedEvent = async (data) => {
-  console.log(data)
-  return await axios.put(`http://localhost:5000/Freezed/${data.id}`, data);
+  return await axios.put(`${process.env.REACT_APP_BACKEND_URL}/Freezed/${data.id}`, data);
 };
 const addFreezedEvent = async (data) => {
-  return await axios.post("http://localhost:5000/Freezed", data);
+  return await axios.post(`${process.env.REACT_APP_BACKEND_URL}/Freezed`, data);
 };
 const addFinishedEvent = async (data) => {
-  return await axios.post("http://localhost:5000/Finished", data);
+  return await axios.post(`${process.env.REACT_APP_BACKEND_URL}/Finished`, data);
 };
 const addSuggestion = async (data) => {
-  return await axios.put(`http://localhost:5000/Current/${data.id}`, data);
+  return await axios.put(`${process.env.REACT_APP_BACKEND_URL}/Current/${data.id}`, data);
 };
 const deleteCurrentEvent = async (data) => {
-  return await axios.delete(`http://localhost:5000/Current/${data.id}`);
-};
+  return await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/Current/${data.id}`);
+}
 const deleteFreezedEvent = async (data) => {
-  return await axios.delete(`http://localhost:5000/Freezed/${data.id}`);
+  return await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/Freezed/${data.id}`);
 };
 export const useAddEvent = () => {
   const queryClient = useQueryClient();

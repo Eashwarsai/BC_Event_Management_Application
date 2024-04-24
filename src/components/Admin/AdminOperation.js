@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import React, { useContext } from "react";
-import UserContext from "../context/UserContext";
+import UserContext from "../../context/UserContext";
 
 const AdminOperation = ({ children, onClick }) => {
   const { currentUser } = useContext(UserContext);
