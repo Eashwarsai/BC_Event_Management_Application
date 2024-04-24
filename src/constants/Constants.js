@@ -23,6 +23,7 @@ export const categories = [
     label: "BoardGames",
   },
 ];
+
 const daysOfWeek = [
   "Sunday",
   "Monday",
