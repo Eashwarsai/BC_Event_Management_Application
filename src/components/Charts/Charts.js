@@ -63,7 +63,6 @@ export default function Charts({ data }) {
               }),
             },
           ]}
-          // width={500}
           height={300}
         />
       </div>

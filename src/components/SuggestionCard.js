@@ -20,6 +20,7 @@ const SuggestionCard = ({ event }) => {
   const { mutate: deleteCurrentEvent } = useDeleteCurrentEvent();
   const { mutate: moveCurrentEvent } = useAddFreezedEvent();
   const { mutate: updateVotes } = useAddSuggestion();
+  const userId = currentUser.id ? currentUser.id : currentUser.uid
   const handleFreeze = () => {
     setOpen(!open);
   };
@@ -35,7 +36,7 @@ const SuggestionCard = ({ event }) => {
       };
       moveCurrentEvent(updatedEvent);
       deleteCurrentEvent(event);
-      const message = `We have finalized "${values.suggestion.place}", for the event "${event.name}" based on voting count and availability`;
+      const message = `We have finalized "${values.suggestion.place}", for the event "${event.name}" based on voting count and feasibility`;
       const notifyInSlack = await PostEventToSlack(
         process.env.REACT_APP_SLACK_API,
         { message: message }
@@ -49,12 +50,12 @@ const SuggestionCard = ({ event }) => {
     if (inUpVotes) return;
     const downvotes = suggestion.downvotes;
     if (inDownVotes) {
-      const index = downvotes.findIndex((userid) => userid === currentUser.id);
+      const index = downvotes.findIndex((userid) => userid === userId);
       downvotes.splice(index, 1);
     }
     const updatedSuggestion = {
       ...suggestion,
-      upvotes: [...suggestion.upvotes, currentUser?.id],
+      upvotes: [...suggestion.upvotes, userId],
       downvotes,
     };
     const suggestions = [
@@ -69,13 +70,13 @@ const SuggestionCard = ({ event }) => {
     if (inDownVotes) return;
     const upvotes = suggestion.upvotes;
     if (inUpVotes) {
-      const index = upvotes.findIndex((userid) => userid === currentUser.id);
+      const index = upvotes.findIndex((userid) => userid === userId);
       upvotes.splice(index, 1);
     }
     const updatedSuggestion = {
       ...suggestion,
       upvotes,
-      downvotes: [...suggestion.downvotes, currentUser?.id],
+      downvotes: [...suggestion.downvotes, userId],
     };
     const suggestions = [
       ...event.suggestions.slice(0, sid),
@@ -103,9 +104,9 @@ const SuggestionCard = ({ event }) => {
       </div>
       <div>
         {event?.suggestions?.map((suggestion, index) => {
-          const inUpVotes = suggestion.upvotes.indexOf(currentUser?.id) !== -1;
+          const inUpVotes = suggestion.upvotes.indexOf(userId) !== -1;
           const inDownVotes =
-            suggestion.downvotes.indexOf(currentUser?.id) !== -1;
+            suggestion.downvotes.indexOf(userId) !== -1;
           return (
             <Suggestion
               key={index}

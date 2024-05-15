@@ -1,3 +1,4 @@
+import axios from "axios";
 import { daysOfWeek, monthsOfYear } from "../constants/Constants";
 
 export function formatMessage(date) {
@@ -22,4 +23,10 @@ function getOrdinalSuffix(number) {
   const relevantDigits = number < 30 ? number % 20 : number % 30;
   const suffixIndex = relevantDigits <= 3 ? relevantDigits : 0;
   return suffixes[suffixIndex];
+}
+
+export const isValidLogin = async(user) =>{
+  const data=await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`)
+  console.log(data?.data.findIndex((item)=>item.email===user.email)!==-1)
+  return data?.data.findIndex((item)=>item.email===user.email)!==-1
 }

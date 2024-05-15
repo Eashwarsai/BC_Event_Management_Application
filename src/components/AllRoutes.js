@@ -13,7 +13,7 @@ const AllRoutes = () => {
       <Route path="/Home">
         <Route path="Finished" element={<Finished />} />
         <Route path="Freezed" element={<Freezed />} />
-        <Route path="Current" element={<Current />} />
+        <Route path="Current" element={<Current />} />z
         <Route index element={<Home />} />
       </Route>
       <Route path="/Analytics" element={<Analytics />} />

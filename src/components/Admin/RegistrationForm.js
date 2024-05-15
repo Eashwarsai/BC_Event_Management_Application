@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Authentication/Firebase/FirebaseApp";
 
 const RegistrationForm = () => {
   const [form] = Form.useForm();
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState('')
+
   const onFinish = async (values) => {
-    console.log("Received values of form: ", values);
     try {
       const data = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
       console.log(data)

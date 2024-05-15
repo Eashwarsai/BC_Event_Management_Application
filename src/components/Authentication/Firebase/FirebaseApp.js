@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAplfahhfYUskGoX4Wm4L5sVCNqlq3SPpo",
+  apiKey:`${process.env.REACT_APP_FIREBASE_API}`,
   authDomain: "event-management-app-25405.firebaseapp.com",
   projectId: "event-management-app-25405",
   storageBucket: "event-management-app-25405.appspot.com",
@@ -13,4 +13,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-export {auth};
+export {auth}

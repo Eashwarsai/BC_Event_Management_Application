@@ -16,6 +16,7 @@ const Freezed = () => {
   const { mutate: deleteFreezedEvent } = useDeleteFreezedEvent();
   const { mutate: moveFinishedEvent } = useAddFinishedEvent();
   const { mutate: updateVotes } = useUpdateFreezedEvent();
+  const userId = currentUser.id ? currentUser.id : currentUser.uid
   const moveToFinishedHandler = (event) => {
     deleteFreezedEvent(event);
     moveFinishedEvent(event);
@@ -34,7 +35,7 @@ const Freezed = () => {
     }
     const updatedSuggestion = {
       ...suggestion,
-      upvotes: [...suggestion.upvotes, currentUser?.id],
+      upvotes: [...suggestion.upvotes, userId],
       downvotes,
     };
     update(index, updatedSuggestion);
@@ -49,7 +50,7 @@ const Freezed = () => {
     const updatedSuggestion = {
       ...suggestion,
       upvotes,
-      downvotes: [...suggestion.downvotes, currentUser?.id],
+      downvotes: [...suggestion.downvotes, userId],
     };
     update(index, updatedSuggestion);
   };
@@ -58,9 +59,9 @@ const Freezed = () => {
     <div>
       {data?.data?.length>0?data.data.map((item, index) => {
         const inUpVotes =
-          item.finalizedSuggestion.upvotes.indexOf(currentUser?.id) !== -1;
+          item.finalizedSuggestion.upvotes.indexOf(userId) !== -1;
         const inDownVotes =
-          item.finalizedSuggestion.downvotes.indexOf(currentUser?.id) !== -1;
+          item.finalizedSuggestion.downvotes.indexOf(userId) !== -1;
         return (
           <div
             key={item.id}

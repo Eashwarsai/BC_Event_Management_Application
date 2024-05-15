@@ -24,7 +24,6 @@ const CollectionCreateFormModal = () => {
         date: values?.DateAndTime["$d"],
         suggestions: [],
       };
-      console.log(data);
       const message = `we are planning for an event "${
         data.name
       }" on "${formatMessage(
@@ -35,10 +34,8 @@ const CollectionCreateFormModal = () => {
         process.env.REACT_APP_SLACK_API,
         { message: message }
       );
-      console.log(notifyInSlack);
       setError("");
     } catch (error) {
-      console.log("Failed:", error);
       setError("failed, Retry!");
     }
   };

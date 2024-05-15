@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { Layout, Menu, theme } from "antd";
-import {
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavIcons, SliderFeilds } from "../../constants/Constants";
 import { LogoutOutlined } from "@ant-design/icons";
 import UserContext from "../../context/UserContext";
 import "./LandingPage.css";
 import AllRoutes from "../AllRoutes";
+import { signOut } from "firebase/auth";
+import { auth } from "../Authentication/Firebase/FirebaseApp";
 const { Header, Content, Footer, Sider } = Layout;
 
 const LandingPage = () => {
@@ -22,7 +21,7 @@ const LandingPage = () => {
   } = theme.useToken();
   const items1 = NavIcons.map((key) => ({
     key: key,
-    label: key,
+    label: `${key} Events`,
     onClick: () => {
       navigate(`/Home/${key}`);
     },
@@ -64,7 +63,15 @@ const LandingPage = () => {
             marginLeft: "auto",
             cursor: "pointer",
           }}
-          onClick={() => setCurrentUser(null)}
+          onClick={async () => {
+            try{
+              await signOut(auth);
+              setCurrentUser(null);
+            }catch(e){
+              console.log("error ",e)
+            }
+            
+          }}
         >
           <LogoutOutlined /> Logout
         </div>
@@ -111,7 +118,7 @@ const LandingPage = () => {
               minHeight: "100%",
             }}
           >
-            <AllRoutes/>
+            <AllRoutes />
           </Content>
         </Layout>
       </Content>

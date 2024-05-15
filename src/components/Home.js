@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../context/UserContext";
 
 const Home = () => {
+  const {currentUser}=useContext(UserContext);
   return (
     <div style={styles.container}>
-      <h1 style={styles.heading}>Welcome to Events Page</h1>
+      <h1 style={styles.heading}>Welcome {currentUser.displayName?currentUser.displayName:currentUser.username}!</h1>
     </div>
   );
 };

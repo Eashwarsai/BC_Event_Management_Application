@@ -3,24 +3,52 @@ import { Button, Form, Input } from "antd";
 import axios from "axios";
 import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { isValidLogin } from "../utils/utils";
+import { auth } from "./Authentication/Firebase/FirebaseApp";
 
 const Login = () => {
   const { setCurrentUser } = useContext(UserContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const onFinish = async ({ username, password }) => {
+  const handleGoogleLogin = async () => {
+    try{
+      const provider = await new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then(async (result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(credential);
+        const response = await isValidLogin(auth.currentUser);
+        if (!response) {
+          await signOut(auth);
+          console.log('not registered')
+          setError('Not a registered user, kindly contact Admin')
+        } else navigate("/Home");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }catch(e){
+      console.log('error',e)
+    }
+  };
+  const onFinish = async ({ email, password }) => {
     try {
-      const users = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
-      const user = users?.data.find((item) => item.username === username);
-      if (user && user.password_hash === password) {
+      const users = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/users`
+      );
+      const user = users?.data.find((item) => item.email === email);
+      if (user.password_hash === password) {
         setCurrentUser(user);
         setError("");
         navigate("/Home");
       } else {
         setError("invalidCredentials");
       }
-    } catch (error) {
-      console.log("Error", error);
+    } catch (e) {
+      console.log(e);
+      setError("invalidCredentials");
+      console.log(error);
     }
   };
   const onFinishFailed = (errorInfo) => {
@@ -38,6 +66,7 @@ const Login = () => {
         backgroundColor: "aliceblue",
       }}
     >
+      {error}
       <h1>Login</h1>
       <Form
         name="basic"
@@ -57,8 +86,8 @@ const Login = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
-          name="username"
+          label="Email"
+          name="email"
           rules={[
             {
               required: true,
@@ -88,6 +117,10 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
+      <h3>OR</h3>
+      <Button onClick={handleGoogleLogin} type="primary">
+        Login with google
+      </Button>
     </div>
   );
 };
